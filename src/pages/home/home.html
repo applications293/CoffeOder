@@ -1,14 +1,85 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="orange">
     <ion-title>
-      Ionic Blank
+      Restaurant
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <!--<div *ngIf="value == 1">
+    <p>
+      first if statement
+    </p>
+    <p>sdds</p>
+  </div>
+
+  <div *ngIf="value == 2">
+    <p>second if testing</p>
+  </div>
+-->
+
+  <ion-list>
+    <ion-item>
+      <ion-input text-center type="text" [(ngModel)]="name" placeholder="Name"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <h6 align="center" color="orange">TOPPINGS</h6>
+  <br>
+
+  <div class="chk">
+    <ion-list>
+
+      <ion-item>
+        <ion-label>Whipped Cream</ion-label>
+        <ion-checkbox (click)="_cream()" [(ngModel)]="Bcream" color="orange"></ion-checkbox>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Chocolate</ion-label>
+        <ion-checkbox (click)="choc()" [(ngModel)]="Bchoc" color="orange"></ion-checkbox>
+      </ion-item>
+
+    </ion-list>
+  </div>
+
+  <h6 align="center" color="orange">QUANTITY</h6>
+  <br>
+
+  <div class="b">
+    <table align="center">
+      <tr>
+        <td>
+          <button ion-button color="grey" small (click)="subtract()">-</button>
+        </td>
+        <td>{{qty}}</td>
+        <td>
+          <button ion-button color="grey" small (click)="add()">+</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+
+  <h6 align="center" color="orange">Orde Summary</h6>
+
+  <div class="summary" *ngIf="ord == 1">
+    <p>Name: {{ name }}</p>
+    <p>{{ cream }}</p>
+    <p>{{ chocolate }}</p>
+    <p>Quantity: {{ qty }}</p>
+    <p>Total: R{{ price }}.00</p>
+    <p>Thank You</p>
+  </div>
+
+
+  <div class="b" align="center">
+    <button ion-button color="grey" small (click)="order()">ORDER</button>
+    <br>
+    <br>
+    <button ion-button color="grey" small (click)="Clear()">RESET</button>
+    <button ion-button color="grey" small (click)="emailOrder()">EMAIL ORDER</button>
+  </div>
+
 </ion-content>
